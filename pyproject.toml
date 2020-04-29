@@ -5,15 +5,17 @@ description = "Beautify dependencies in pyproject.yaml based on poetry.lock"
 authors = ["Jack Klimov <jaklimoff@gmail.com>"]
 
 [tool.poetry.scripts]
-format = "poetry-deps-formatter:formatter"
+format = "poetry_deps_formatter:formatter"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-toml = "^0.10.0"                                  # Python Library for Tom's Obvious, Minimal Language ·· https://pypi.org/project/toml/ 
+toml = ">=0.9.0"                                  # Python Library for Tom's Obvious, Minimal Language ·· https://pypi.org/project/toml/ 
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"                                   # pytest: simple powerful testing with Python ·· https://pypi.org/project/pytest/ 
-mock = "^4.0.2"                                   # Rolling backport of unittest.mock for all Pythons ·· https://pypi.org/project/mock/
+pre-commit = "*"                                  # A framework for managing and maintaining multi-language pre-commit hooks. ·· https://pypi.org/project/pre-commit/ 
+pytest-mock = "~2.0.0"                            # Thin-wrapper around the mock package for easier use with py.test ·· https://pypi.org/project/pytest-mock/ 
+coverage = "*"                                    # Code coverage measurement for Python ·· https://pypi.org/project/coverage/ 
 
 
 [build-system]
