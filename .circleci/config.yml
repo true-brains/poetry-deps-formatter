@@ -1,0 +1,35 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@0.2.1
+
+jobs:
+  build-and-test:
+    executor: python/default
+    steps:
+      - checkout
+      - python/load-cache
+      - python/install-deps
+      - python/save-cache
+      - run:
+          command: |
+            poetry config virtualenvs.in-project true
+            poetry install
+            mkdir -p .coverage .test-reports
+      - run:
+          command: |
+            poetry run pytest --cov=poetry-deps-formatter --junit-xml=junit.xml -v -m "not benchmark"
+      - run:
+          command: |
+            mv .coverage/coverage .coverage/coverage$CIRCLE_BUILD_NUM
+      - persist_to_workspace:
+          root: /home/circleci/project/.coverage
+          paths:
+            - coverage*
+      - store_test_results:
+          path: .test-reports
+
+workflows:
+  main:
+    jobs:
+      - build-and-test
