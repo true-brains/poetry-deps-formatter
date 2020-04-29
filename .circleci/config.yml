@@ -36,17 +36,8 @@ jobs:
       - run:
           command: |
             poetry run pytest --cov=poetry-deps-formatter --junit-xml=junit.xml -v -m "not benchmark"
-      - run:
-          command: |
-            mv .coverage/coverage .coverage/coverage$CIRCLE_BUILD_NUM
-      - persist_to_workspace:
-          root: /home/circleci/project/.coverage
-          paths:
-            - coverage*
-
       - store_test_results:
           path: .test-reports
-
       - save_cache:
           key: deps-2-{{ .Environment.CIRCLE_JOB }}-{{ checksum "pyproject.toml" }}
           paths:
@@ -76,17 +67,3 @@ jobs:
           key: deps-2-{{ .Environment.CIRCLE_JOB }}-{{ checksum "pyproject.toml" }}
           paths:
             - ".venv"
-
-  combine_coverage_reports:
-    docker:
-      - image: circleci/python:3.7
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .coverage
-      - run:
-          command: |
-            poetry install
-            poetry run coverage combine .coverage/coverage*
-            poetry run coverage xml -i
-            poetry run python-codacy-coverage -r coverage.xml
