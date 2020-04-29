@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "poetry-deps-formatter"
-version = "0.1.0"
+version = "0.1.1"
 description = "Beautify dependencies in pyproject.yaml based on poetry.lock"
 authors = ["Jack Klimov <jaklimoff@gmail.com>"]
 
@@ -16,6 +16,7 @@ pytest = "^5.2"                                   # pytest: simple powerful test
 pre-commit = "*"                                  # A framework for managing and maintaining multi-language pre-commit hooks. ·· https://pypi.org/project/pre-commit/ 
 pytest-mock = "~2.0.0"                            # Thin-wrapper around the mock package for easier use with py.test ·· https://pypi.org/project/pytest-mock/ 
 coverage = "*"                                    # Code coverage measurement for Python ·· https://pypi.org/project/coverage/ 
+pytest-cov = "*"                              # Pytest plugin for measuring coverage. ·· https://pypi.org/project/pytest-cov/
 
 
 [build-system]
