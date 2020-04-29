@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  python: circleci/python@0.2.1
+  poetry: frameio/poetry@0.14.1
 
 jobs:
   build-and-test:
@@ -30,6 +30,9 @@ jobs:
           path: .test-reports
 
 workflows:
-  main:
+  ci:
     jobs:
-      - build-and-test
+      - poetry/build
+
+
+
