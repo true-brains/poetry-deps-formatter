@@ -1,5 +1,4 @@
 import pytest
-from mock import patch
 import re
 from poetry_deps_formatter import DependenciesFormatter
 
