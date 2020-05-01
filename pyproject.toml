@@ -3,6 +3,8 @@ name = "poetry-deps-formatter"
 version = "0.1.1"
 description = "Beautify dependencies in pyproject.yaml based on poetry.lock"
 authors = ["Jack Klimov <jaklimoff@gmail.com>"]
+readme = "README.rst"
+repository = "https://github.com/true-brains/poetry-deps-formatter"
 
 [tool.poetry.scripts]
 format = "poetry_deps_formatter:formatter"
