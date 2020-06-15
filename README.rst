@@ -48,4 +48,4 @@ How to use
 
 .. code-block::
 
-    poetry run formatter
+    poetry run format
