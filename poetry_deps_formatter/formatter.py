@@ -32,7 +32,7 @@ class DependenciesFormatter:
             for package in packages:
                 name = package['name']
                 text = re.sub(
-                    f'^({name}[\s|=].*").*$',
+                    fr'^({name}[\s|=].*").*$',
                     self._describe_dependency(package),
                     text,
                     flags=re.MULTILINE)
